@@ -1,9 +1,8 @@
 name: Build
 
 on:
-  push:
-    branches:
-      - 5-feat-add-build-step-in-action
+  schedule:
+    - cron: '0 0 * * *'
 
 permissions:
   contents: read

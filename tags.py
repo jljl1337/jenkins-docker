@@ -16,10 +16,10 @@ with urlopen(url) as response:
 tags = jsonbody['results']
 
 # Filter by last_updated that is with the past week
-one_week_ago = datetime.datetime.now() - datetime.timedelta(days=7)
-one_week_ago = one_week_ago.replace(tzinfo=datetime.timezone.utc).isoformat()
+one_day_ago = datetime.datetime.now() - datetime.timedelta(days=1)
+one_day_ago = one_day_ago.replace(tzinfo=datetime.timezone.utc).isoformat()
 
-filtered = [tag for tag in tags if tag['last_updated'] > one_week_ago]
+filtered = [tag for tag in tags if tag['last_updated'] > one_day_ago]
 filtered = [
     tag for tag in filtered if len([
         True for image in tag['images'] if
