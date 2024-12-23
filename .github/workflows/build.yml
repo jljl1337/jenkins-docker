@@ -37,8 +37,8 @@ jobs:
       - name: Separate file and tag
         id: tag
         run: |
-          echo "dockerfile=$(echo ${{ matrix.dockerfile }} | cut -d ',' -f 1)" >> $GITHUB_ENV
-          echo "tag=$(echo ${{ matrix.dockerfile }} | cut -d ',' -f 2)" >> $GITHUB_ENV
+          echo "dockerfile=$(echo ${{ matrix.tags }} | cut -d ',' -f 1)" >> $GITHUB_ENV
+          echo "tag=$(echo ${{ matrix.tags }} | cut -d ',' -f 2)" >> $GITHUB_ENV
 
       - name: Test
         run: |
