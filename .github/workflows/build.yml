@@ -56,4 +56,5 @@ jobs:
           context: .
           file: ./${{ steps.tag.outputs.dockerfile }}
           push: true
+          build-args: TAG=${{ steps.tag.outputs.tag }}
           tags: jljl1337/jenkins-docker:${{ steps.tag.outputs.tag }}
