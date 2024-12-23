@@ -60,5 +60,5 @@ all_tags_str = json.dumps({'tags': all_tags}, separators=(',', ':'))
 
 print(all_tags_str)
 
-# with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-#     f.write(f'matrix={all_tags_str}\n')
+with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+    f.write(f'matrix={all_tags_str}\n')
