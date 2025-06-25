@@ -27,6 +27,7 @@ jobs:
     needs: get-tags
     if: ${{ needs.get-tags.outputs.length > 0 }}
     strategy:
+      fail-fast: false
       matrix: ${{fromJson(needs.get-tags.outputs.matrix)}}
 
     steps:
