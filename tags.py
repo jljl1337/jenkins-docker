@@ -2,11 +2,14 @@ import os
 import json
 import datetime
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 
 url = 'https://hub.docker.com/v2/namespaces/jenkins/repositories/jenkins/tags?page=1&page_size=100'
 
-with urlopen(url) as response:
+# Add User-Agent header to avoid 403 Forbidden
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+
+with urlopen(req) as response:
     try:
         jsonbody = json.load(response)
     except json.JSONDecodeError:
